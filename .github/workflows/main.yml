@@ -1,0 +1,16 @@
+name : Pipeline para revisar archivo
+
+on:
+    push:
+        branches : ["main"]
+
+jobs:
+    build:
+        runs-on : ubuntu-latest
+
+        steps:
+            - name: Usar NODE JS
+              uses: actions/setup-node@v4
+            
+            - name: Construir app con node
+              run: npm install 
