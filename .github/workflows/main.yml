@@ -9,9 +9,19 @@ jobs:
         runs-on : ubuntu-latest
 
         steps:
+            
+            - name: Verificar si app.js existe
+              run: |
+                if [ -f app.js ]; then
+                    echo "El archivo app.js ha sido encontrado."
+                else
+                    echo "Error: El archivo app.js no existe en la raíz."
+                    exit 1
+                fi
+
             - name: Checkout del código
               uses: actions/checkout@v4
-              
+
             - name: Usar NODE JS
               uses: actions/setup-node@v4
               with:
