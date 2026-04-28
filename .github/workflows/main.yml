@@ -17,15 +17,13 @@ jobs:
 
             - name: Verificar si app.js existe
               run: |
-                if [ -f "$GITHUB_WORKSPACE/app.js" ]; then
-                    echo "✅ El archivo app.js existe en la raíz."
-                else
-                    echo "❌ El archivo app.js no existe en la raíz."
-                    echo "Archivos encontrados en la raíz:"
-                    ls -la "$GITHUB_WORKSPACE"
+                if [ ! -f "$GITHUB_WORKSPACE/app.js" ]; then
+                    echo "❌ No se encontró app.js en la raíz."
                     exit 1
                 fi
-                
+                echo "✅ Se encontró app.js. Continuando con el workflow..."
+                    
+
             - name: Usar NODE JS
               uses: actions/setup-node@v4
               with:
