@@ -10,6 +10,11 @@ jobs:
 
         steps:
             
+            
+
+            - name: Checkout del código
+              uses: actions/checkout@v4
+
             - name: Verificar si app.js existe
               run: |
                 if [ -f "$GITHUB_WORKSPACE/app.js" ]; then
@@ -20,10 +25,7 @@ jobs:
                     ls -la "$GITHUB_WORKSPACE"
                     exit 1
                 fi
-
-            - name: Checkout del código
-              uses: actions/checkout@v4
-
+                
             - name: Usar NODE JS
               uses: actions/setup-node@v4
               with:
