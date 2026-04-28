@@ -31,3 +31,6 @@ jobs:
             
             - name: Construir app con node
               run: npm install 
+
+            - name: Ejecutar pruebas a función raiz(/)
+              run: npm test
